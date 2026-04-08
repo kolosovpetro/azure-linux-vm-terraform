@@ -15,7 +15,7 @@ Terraform modules for Azure Linux Virtual machines
 
 ```hcl
 module "ubuntu_vm_key_auth" {
-  source                    = "github.com/kolosovpetro/AzureLinuxVMTerraform.git//modules/ubuntu-vm-key-auth?ref=master"
+  source                    = "github.com/kolosovpetro/azure-linux-vm-terraform.git//modules/ubuntu-vm-key-auth?ref=master"
   resource_group_name       = azurerm_resource_group.public.name
   resource_group_location   = azurerm_resource_group.public.location
   subnet_id                 = azurerm_subnet.internal.id
@@ -35,7 +35,7 @@ module "ubuntu_vm_key_auth" {
 
 ```hcl
 module "ubuntu_vm_custom_image_key_auth" {
-  source                           = "github.com/kolosovpetro/AzureLinuxVMTerraform.git//modules/ubuntu-vm-key-auth-custom-image?ref=master"
+  source                           = "github.com/kolosovpetro/azure-linux-vm-terraform.git//modules/ubuntu-vm-key-auth-custom-image?ref=master"
   custom_image_resource_group_name = "rg-packer-images-linux"
   custom_image_sku                 = "ubuntu2204-v1"
   ip_configuration_name            = "ipc-custom-image-key-${var.prefix}"
@@ -57,7 +57,7 @@ module "ubuntu_vm_custom_image_key_auth" {
 
 ```hcl
 module "ubuntu_vm_custom_image_key_auth_no_pip" {
-  source                           = "github.com/kolosovpetro/AzureLinuxVMTerraform.git//modules/ubuntu-vm-key-auth-custom-image-no-pip"
+  source                           = "github.com/kolosovpetro/azure-linux-vm-terraform.git//modules/ubuntu-vm-key-auth-custom-image-no-pip"
   custom_image_resource_group_name = "rg-packer-images-linux"
   custom_image_sku                 = "ubuntu2204-v1"
   ip_configuration_name            = "ipc-custom-image-key2-${var.prefix}"
@@ -78,7 +78,7 @@ module "ubuntu_vm_custom_image_key_auth_no_pip" {
 
 ```hcl
 module "ubuntu_vm_pass_auth" {
-  source                    = "github.com/kolosovpetro/AzureLinuxVMTerraform.git//modules/ubuntu-vm-password-auth?ref=master"
+  source                    = "github.com/kolosovpetro/azure-linux-vm-terraform.git//modules/ubuntu-vm-password-auth?ref=master"
   ip_configuration_name     = "pip-pass-auth-${var.prefix}"
   network_interface_name    = "nic-pass-auth-${var.prefix}"
   os_profile_admin_password = trimspace(file("${path.root}/password.txt"))
@@ -98,7 +98,7 @@ module "ubuntu_vm_pass_auth" {
 
 ```hcl
 module "ubuntu_vm_pass_auth_custom_image" {
-  source                    = "github.com/kolosovpetro/AzureLinuxVMTerraform.git//modules/ubuntu-vm-password-auth-custom-image?ref=master"
+  source                    = "github.com/kolosovpetro/azure-linux-vm-terraform.git//modules/ubuntu-vm-password-auth-custom-image?ref=master"
   ip_configuration_name     = "pip-custom-pass-${var.prefix}"
   network_interface_name    = "nic-custom-pass-${var.prefix}"
   os_profile_admin_password = trimspace(file("${path.root}/password.txt"))
@@ -118,7 +118,7 @@ module "ubuntu_vm_pass_auth_custom_image" {
 
 ```hcl
 module "ubuntu_vm_pass_auth_custom_image_no_pip" {
-  source                    = "github.com/kolosovpetro/AzureLinuxVMTerraform.git//modules/ubuntu-vm-password-auth-custom-image-no-pip"
+  source                    = "github.com/kolosovpetro/azure-linux-vm-terraform.git//modules/ubuntu-vm-password-auth-custom-image-no-pip"
   ip_configuration_name     = "pip-custom-pass2-${var.prefix}"
   network_interface_name    = "nic-custom-pass2-${var.prefix}"
   os_profile_admin_password = trimspace(file("${path.root}/password.txt"))

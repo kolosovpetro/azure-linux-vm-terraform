@@ -21,3 +21,7 @@ output "ip_configuration_name" {
 output "id" {
   value = azurerm_virtual_machine.public.id
 }
+
+output "principal_id" {
+  value = azurerm_virtual_machine.public.identity[0].principal_id
+}

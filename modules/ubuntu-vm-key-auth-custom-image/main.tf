@@ -32,6 +32,10 @@ resource "azurerm_virtual_machine" "public" {
 
   delete_os_disk_on_termination = true
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   storage_image_reference {
     id = data.azurerm_image.search.id
   }
@@ -65,4 +69,8 @@ resource "azurerm_virtual_machine" "public" {
 resource "azurerm_network_interface_security_group_association" "nic_association" {
   network_interface_id      = azurerm_network_interface.public.id
   network_security_group_id = var.network_security_group_id
+
+  depends_on = [
+    azurerm_network_interface.public
+  ]
 }
