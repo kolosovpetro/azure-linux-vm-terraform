@@ -15,3 +15,13 @@ variable "subscription_id" {
   description = "Azure subscription ID."
   default     = "1b08b9a2-ac6d-4b86-8a2f-8fef552c8371"
 }
+
+variable "tags" {
+  type        = map(string)
+  description = "Tags for all resources"
+  default = {
+    Environment  = "DEV"
+    Owner        = "Terraform"
+    Autoshutdown = "OFF"
+  }
+}

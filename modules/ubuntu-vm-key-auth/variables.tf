@@ -111,3 +111,13 @@ variable "storage_os_disk_managed_disk_type" {
   description = "Defines the type of managed disk for the OS disk (e.g., Premium_LRS, Standard_LRS)."
   default     = "Premium_LRS"
 }
+
+variable "tags" {
+  type        = map(string)
+  description = "Tags for all resources"
+  default = {
+    Environment  = "DEV"
+    Owner        = "Terraform"
+    Autoshutdown = "OFF"
+  }
+}
